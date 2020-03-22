@@ -11,6 +11,8 @@ buildscript {
     }
 }
 
+
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -25,11 +27,32 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    runtimeOnly('com.h2database:h2')
 }
 
+
+//gradle5부터는 어너테이션을 구별해서 추가해줘야 한다.
+//querydsl 추가시 또 에러 발생할 수 있으니깐 gradle4로 설정해서 써야함
+dependencies {
+    compile('org.projectlombok:lombok')
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+
+
