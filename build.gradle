@@ -30,12 +30,18 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+
+
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     runtimeOnly('com.h2database:h2')
+
 }
 
 
-//gradle5부터는 어너테이션을 구별해서 추가해줘야 한다.
+//gradle5부터는 어너테이션을 구별해서 추가해줘야 한다.NY
 //querydsl 추가시 또 에러 발생할 수 있으니깐 gradle4로 설정해서 써야함
 dependencies {
     compile('org.projectlombok:lombok')
