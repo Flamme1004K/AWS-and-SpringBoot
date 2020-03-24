@@ -41,7 +41,7 @@ public class User extends BaseTimeEntity {
         this.name = name;
         this.picture = picture;
 
-        return  this;
+        return this;
     }
 
     public String getRoleKey() {
